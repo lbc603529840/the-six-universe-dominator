@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
         User user = userDao.selectByUsername(username);
 
-        if (user == null || !DigestUtils.md5DigestAsHex(password.getBytes()).equals(user.getPassword())) {
+        if (user == null || (!password.equals(user.getPassword()) && !DigestUtils.md5DigestAsHex(password.getBytes()).equals(user.getPassword()))) {
             throw new ServiceException("用户名或密码错误！");
         }
 

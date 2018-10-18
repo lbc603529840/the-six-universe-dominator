@@ -35,20 +35,20 @@ public class UserController {
             User user = userService.login(username, password);
 
             if ("true".equals(remember)) {
-                Cookie cookieUsername = new Cookie("cookieUsername", username);
+                Cookie cookieUsername = new Cookie("cookieUsername", user.getUsername());
                 cookieUsername.setMaxAge(86400);
                 cookieUsername.setPath("/");
                 response.addCookie(cookieUsername);
-                Cookie cookiePassword = new Cookie("cookiePassword", password);
+                Cookie cookiePassword = new Cookie("cookiePassword", user.getPassword());
                 cookiePassword.setMaxAge(86400);
                 cookiePassword.setPath("/");
                 response.addCookie(cookiePassword);
             } else {
-                Cookie cookieUsername = new Cookie("cookieUsername", username);
+                Cookie cookieUsername = new Cookie("cookieUsername", user.getUsername());
                 cookieUsername.setMaxAge(0);
                 cookieUsername.setPath("/");
                 response.addCookie(cookieUsername);
-                Cookie cookiePassword = new Cookie("cookiePassword", password);
+                Cookie cookiePassword = new Cookie("cookiePassword", user.getPassword());
                 cookiePassword.setMaxAge(0);
                 cookiePassword.setPath("/");
                 response.addCookie(cookiePassword);
