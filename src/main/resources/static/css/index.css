@@ -2,6 +2,39 @@ body {
   background-image: url("../images/background.png");
 }
 
+.div-head {
+  background-color: #F0F8FF;
+}
+
+.div-time {
+  text-align: right;
+}
+
+.ul-dropdown {
+  text-align: center;
+}
+
+.div-body {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 502px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.div-foot {
+  background-color: #F0F8FF;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.span-copyright {
+  font-family: STKaiTi;
+  font-weight: bolder;
+  font-size: 18px;
+  color: #2E4358;
+}
+
 .div-login {
   width: 300px;
   height: 190px;
@@ -11,6 +44,10 @@ body {
 
 .div-remember {
   text-align: right;
+}
+
+.input-remember:hover, .laber-remember:hover {
+  cursor: pointer;
 }
 
 .div-button {

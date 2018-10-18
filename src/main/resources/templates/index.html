@@ -8,37 +8,66 @@
   </head>
   <body>
     <#if user??>
-      ${user.username}
-      <br />
-      ${user.uuid}
-      <a href="/user/logout" class="btn btn-default">注销</a>
+    <div class="div-head">
+      <div class="div-time">
+        <span>${.now?string("yyyy年MM月dd日")}</span>
+        <span id="span_time"></span>
+      </div>
+      <!-- 导航元素start -->
+      <ul class="nav nav-pills nav-justified">
+        <li class="active"><a href="#" class="a-navigation">Legends</a></li>
+        <li><a href="#" class="a-navigation">SVN</a></li>
+        <li><a href="#" class="a-navigation">iOS</a></li>
+        <li><a href="#" class="a-navigation">VB.Net</a></li>
+        <li><a href="#" class="a-navigation">Java</a></li>
+        <li><a href="#" class="a-navigation">PHP</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">${user.nickname}&nbsp;&nbsp;<span class="caret"></span></a>
+          <ul class="ul-dropdown dropdown-menu nav nav-tabs nav-stacked">
+            <li><a href="#">Swing</a></li>
+            <li><a href="#">jMeter</a></li>
+            <li><a href="#">EJB</a></li>
+            <li class="divider"></li>
+            <li><a href="/user/logout">注销</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- 导航元素end -->
+    </div>
+    <div class="div-body">
+      <!-- 图标 -->
+    </div>
+    <div class="div-foot">
+      <!-- 分页 -->
+      <span class="span-copyright">版权所有&copy;华北水利水电大学软件学院 | 地址:河南省郑州市北环路36号 | 邮编：450045 | 联系方式：0371-69127680</span>
+    </div>
     <#else>
-	  <div class="div-login">
-	    <!-- 输入框组start -->
-	    <div class="input-group">
-	      <label for="input_username" class="input-group-addon">用户名：</label>
-	      <input type="text" id="input_username" class="form-control" placeholder="请输入您的用户名">
-	    </div>
-	    <!-- 输入框组end -->
-	    <br />
-	    <!-- 输入框组start -->
-	    <div class="input-group">
-	      <label for="input_password" class="input-group-addon">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
-	      <input type="password" id="input_password" class="form-control" placeholder="请输入您的密码">
-	    </div>
-	    <!-- 输入框组end -->
-	    <br />
-	    <div class="div-remember">
-	      <input type="checkbox" id="input_remember" />
-	      <label for="input_remember">是否记住用户名和密码</label>
-	    </div>
-	    <br />
-	    <div class="div-button">
-	      <input type="button" id="input_login" class="btn btn-primary" value="登陆" />
-	      <input type="button" id="input_register" class="input-register btn btn-success" value="注册" />
-	    </div>
-	  </div>
-	</#if>
+      <div class="div-login">
+        <!-- 输入框组start -->
+        <div class="input-group">
+          <label for="input_username" class="input-group-addon">用户名：</label>
+          <input type="text" id="input_username" class="form-control" placeholder="请输入您的用户名">
+        </div>
+        <!-- 输入框组end -->
+        <br />
+        <!-- 输入框组start -->
+        <div class="input-group">
+          <label for="input_password" class="input-group-addon">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+          <input type="password" id="input_password" class="form-control" placeholder="请输入您的密码">
+        </div>
+        <!-- 输入框组end -->
+        <br />
+        <div class="div-remember">
+          <input type="checkbox" id="input_remember" class="input-remember" />
+          <label for="input_remember" class="laber-remember">是否记住用户名和密码</label>
+        </div>
+        <br />
+        <div class="div-button">
+          <input type="button" id="input_login" class="btn btn-primary" value="登陆" />
+          <input type="button" id="input_register" class="input-register btn btn-success" value="注册" />
+        </div>
+      </div>
+    </#if>
   </body>
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
