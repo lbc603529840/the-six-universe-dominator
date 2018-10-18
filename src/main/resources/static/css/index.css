@@ -1,0 +1,22 @@
+body {
+  background-image: url("../images/background.png");
+}
+
+.div-login {
+  width: 300px;
+  height: 190px;
+  margin-top: 340px;
+  margin-left: 520px;
+}
+
+.div-remember {
+  text-align: right;
+}
+
+.div-button {
+  text-align: center;
+}
+
+.input-register {
+  margin-left: 35px;
+}
