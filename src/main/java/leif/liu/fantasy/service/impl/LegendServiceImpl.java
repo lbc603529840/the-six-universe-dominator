@@ -2,9 +2,11 @@ package leif.liu.fantasy.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import leif.liu.fantasy.dao.LegendDao;
 import leif.liu.fantasy.entity.Legend;
+import leif.liu.fantasy.exception.ServiceException;
 import leif.liu.fantasy.service.LegendService;
 import leif.liu.fantasy.util.MyUtil;
 
@@ -14,7 +16,7 @@ public class LegendServiceImpl implements LegendService {
     private LegendDao legendDao;
 
     @Override
-    public int create(Legend legend) {
+    public int create(Legend legend) throws ServiceException {
         legend.setPower_rank(MyUtil.getRankByScore(legend.getPower_score()));
         legend.setSpirit_rank(MyUtil.getRankByScore(legend.getSpirit_score()));
         legend.setAgility_rank(MyUtil.getRankByScore(legend.getAgility_score()));
@@ -26,6 +28,11 @@ public class LegendServiceImpl implements LegendService {
         legend.setTotal_rank(MyUtil.getRankByScore(totalScore));
         legend.setCreated_time(MyUtil.getCurrentDate());
         legend.setUpdated_time(MyUtil.getCurrentDate());
+
+        if (StringUtils.isEmpty(legend.getName()) || StringUtils.isEmpty(legend.getDesignation()) || StringUtils.isEmpty(legend.getElement()) || StringUtils.isEmpty(legend.getAbility()) || StringUtils.isEmpty(legend.getBelong_to())) {
+            throw new ServiceException("请完善数据！");
+        }
+
         return legendDao.insert(legend);
     }
 }

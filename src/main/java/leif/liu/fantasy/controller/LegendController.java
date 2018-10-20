@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import leif.liu.fantasy.entity.Legend;
 import leif.liu.fantasy.entity.User;
+import leif.liu.fantasy.exception.ServiceException;
 import leif.liu.fantasy.service.LegendService;
 
 @Controller
@@ -38,7 +40,12 @@ public class LegendController {
                          @RequestParam(name = "defenseScore") int defenseScore,
                          @RequestParam(name = "toughnessScore") int toughnessScore,
                          @ModelAttribute("user") User userInSession) {
-        legendService.create(new Legend(UUID.randomUUID().toString(), name, designation, element, ability, 1, belongTo, powerScore, null, spiritScore, null, agilityScore, null, enduranceScore, null, defenseScore, null, toughnessScore, null, 0, null, null, userInSession.getNickname(), null, userInSession.getNickname()));
+        try {
+            legendService.create(new Legend(UUID.randomUUID().toString(), StringUtils.trimWhitespace(name), StringUtils.trimWhitespace(designation), StringUtils.trimWhitespace(element), StringUtils.trimWhitespace(ability), 1, StringUtils.trimWhitespace(belongTo), powerScore, null, spiritScore, null, agilityScore, null, enduranceScore, null, defenseScore, null, toughnessScore, null, 0, null, null, userInSession.getNickname(), null, userInSession.getNickname()));
+        } catch (ServiceException serviceException) {
+            return serviceException.getServiceExceptionMessage();
+        }
+
         return "success";
     }
 

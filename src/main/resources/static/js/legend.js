@@ -164,7 +164,11 @@ $(function() {
             }]
         });
         // EChart 雷达图 end
-    })
+    });
+
+    $("#input_name, #input_designation, #input_ability, #input_belong_to").click(function() {
+        $(this).removeClass("input-basic");
+    });
 
     $("input[type='range']").on("input propertychange", function() {
         $(this).next().children().val($(this).val());
@@ -301,30 +305,61 @@ $(function() {
     });
 
     $("input[type='range']").next().mouseleave(function() {
+        if (!$(this).children().val()) {
+            $(this).children().val($(this).prev().val());
+        }
+
         $(this).children().attr("readOnly", "readOnly");
     });
 
     $("#input_create").click(function() {
-        $.post("/legend/create", {
-            name: $("#input_name").val(),
-            designation: $("#input_designation").val(),
-            element: $("#select_element").val(),
-            ability: $("#input_ability").val(),
-            belongTo: $("#input_belong_to").val(),
-            powerScore: $("#input_power_score").val(),
-            spiritScore: $("#input_spirit_score").val(),
-            agilityScore: $("#input_agility_score").val(),
-            enduranceScore: $("#input_endurance_score").val(),
-            defenseScore: $("#input_defense_score").val(),
-            toughnessScore: $("#input_toughness_score").val()
-        }, function(data, status) {
-            if ("success" == data) {
-                alert("新增成功！")
-            } else {
-                alert("新增失败！");
-            }
+        var isSubmit = true;
 
-            window.location.reload();
-        });
+        if (!$("#input_name").val().trim()) {
+            isSubmit = false;
+            $("#input_name").addClass("input-basic");
+        }
+
+        if (!$("#input_designation").val().trim()) {
+            isSubmit = false;
+            $("#input_designation").addClass("input-basic");
+        }
+
+        if (!$("#input_ability").val().trim()) {
+            isSubmit = false;
+            $("#input_ability").addClass("input-basic");
+        }
+
+        if (!$("#input_belong_to").val().trim()) {
+            isSubmit = false;
+            $("#input_belong_to").addClass("input-basic");
+        }
+
+        if (isSubmit) {
+            $.post("/legend/create", {
+                name: $("#input_name").val(),
+                designation: $("#input_designation").val(),
+                element: $("#select_element").val(),
+                ability: $("#input_ability").val(),
+                belongTo: $("#input_belong_to").val(),
+                powerScore: $("#input_power_score").val(),
+                spiritScore: $("#input_spirit_score").val(),
+                agilityScore: $("#input_agility_score").val(),
+                enduranceScore: $("#input_endurance_score").val(),
+                defenseScore: $("#input_defense_score").val(),
+                toughnessScore: $("#input_toughness_score").val()
+            }, function(data, status) {
+                if ("string" == typeof(data)) {
+                    if ("success" == data) {
+                        alert("新增成功！");
+                        window.location.reload();
+                    } else {
+                        alert(data);
+                    }
+                } else {
+                    alert("新增失败！");
+                }
+            });
+        }
     });
 });

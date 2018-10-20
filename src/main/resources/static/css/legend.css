@@ -24,6 +24,12 @@ body {
   width: 420px;
 }
 
+.input-basic {
+  border-color: red;
+  border-width: 2px;
+  border-style: dashed;
+}
+
 .div-right {
   width: 420px;
   height: 250px;
