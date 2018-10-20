@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import leif.liu.fantasy.dao.LegendDao;
 import leif.liu.fantasy.entity.Legend;
@@ -18,7 +19,7 @@ public class LegendServiceImpl implements LegendService {
     private LegendDao legendDao;
 
     @Override
-    public int create(Legend legend) throws ServiceException {
+    public int create(Legend legend, MultipartFile multipartFile) throws ServiceException {
         legend.setPower_rank(MyUtil.getRankByScore(legend.getPower_score()));
         legend.setSpirit_rank(MyUtil.getRankByScore(legend.getSpirit_score()));
         legend.setAgility_rank(MyUtil.getRankByScore(legend.getAgility_score()));
@@ -33,6 +34,10 @@ public class LegendServiceImpl implements LegendService {
 
         if (StringUtils.isEmpty(legend.getName()) || StringUtils.isEmpty(legend.getDesignation()) || StringUtils.isEmpty(legend.getElement()) || StringUtils.isEmpty(legend.getAbility()) || StringUtils.isEmpty(legend.getBelong_to())) {
             throw new ServiceException("请完善数据！");
+        }
+
+        if (!multipartFile.isEmpty()) {
+            MyUtil.uploadFile(multipartFile, legend.getUuid() + ".jpg", "/the-six-universe-dominator/legend/");
         }
 
         return legendDao.insert(legend);

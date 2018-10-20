@@ -30,7 +30,7 @@ $(function() {
         $("#input_toughness_score").next().children().val($("#input_toughness_score").val());
 
         // EChart 雷达图 start
-        echarts.init($("#div_right").get(0), "dark").setOption({
+        echarts.init($("#div_right")[0], "dark").setOption({
             tooltip: {
                 trigger: "none"
             },
@@ -105,7 +105,7 @@ $(function() {
         $("#input_toughness_score").val("50");
 
         // EChart 雷达图 start
-        echarts.init($("#div_right").get(0), "dark").setOption({
+        echarts.init($("#div_right")[0], "dark").setOption({
             tooltip: {
                 trigger: "none"
             },
@@ -170,11 +170,15 @@ $(function() {
         $(this).removeClass("input-basic");
     });
 
+    $("#span_picture").click(function() {
+        $("#input_picture").click();
+    });
+
     $("input[type='range']").on("input propertychange", function() {
         $(this).next().children().val($(this).val());
 
         // EChart 雷达图 start
-        echarts.init($("#div_right").get(0), "dark").setOption({
+        echarts.init($("#div_right")[0], "dark").setOption({
             tooltip: {
                 trigger: "none"
             },
@@ -243,7 +247,7 @@ $(function() {
         $(this).parent().prev().val($(this).val());
 
         // EChart 雷达图 start
-        echarts.init($("#div_right").get(0), "dark").setOption({
+        echarts.init($("#div_right")[0], "dark").setOption({
             tooltip: {
                 trigger: "none"
             },
@@ -336,28 +340,20 @@ $(function() {
         }
 
         if (isSubmit) {
-            $.post("/legend/create", {
-                name: $("#input_name").val(),
-                designation: $("#input_designation").val(),
-                element: $("#select_element").val(),
-                ability: $("#input_ability").val(),
-                belongTo: $("#input_belong_to").val(),
-                powerScore: $("#input_power_score").val(),
-                spiritScore: $("#input_spirit_score").val(),
-                agilityScore: $("#input_agility_score").val(),
-                enduranceScore: $("#input_endurance_score").val(),
-                defenseScore: $("#input_defense_score").val(),
-                toughnessScore: $("#input_toughness_score").val()
-            }, function(data, status) {
-                if ("string" == typeof(data)) {
+            $.ajax({
+                url: "/legend/create",
+                type: "POST",
+                data: new FormData($("#form_legend")[0]),
+                processData: false,
+                contentType: false,
+
+                success: function (data) {
                     if ("success" == data) {
                         alert("新增成功！");
                         window.location.reload();
                     } else {
-                        alert(data);
+                        alert("新增失败！");
                     }
-                } else {
-                    alert("新增失败！");
                 }
             });
         }

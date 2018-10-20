@@ -44,90 +44,94 @@
               <h4 class="modal-title" id="myModalLabel">Legend</h4>
             </div>
             <div class="modal-body">
-              <div class="div-left">
+              <form id="form_legend">
+                <div class="div-left">
+                  <!-- 输入框组start -->
+                  <div class="input-group">
+                    <label for="input_name" class="input-group-addon">姓名：</label>
+                    <input type="text" name="inputName" id="input_name" class="form-control" placeholder="请输入姓名" />
+                    <span id="span_picture" class="span-picture input-group-addon">上传头像</span>
+                    <input type="file" name="inputPicture" id="input_picture" style="display: none;" />
+                  </div>
+                  <!-- 输入框组end -->
+                  <br />
+                  <!-- 输入框组start -->
+                  <div class="input-group">
+                    <label for="input_designation" class="input-group-addon">称号：</label>
+                    <input type="text" name="inputDesignation" id="input_designation" class="form-control" placeholder="请输入称号" />
+                  </div>
+                  <!-- 输入框组end -->
+                  <br />
+                  <!-- 输入框组start -->
+                  <div class="input-group">
+                    <label for="select_element" class="input-group-addon">元素：</label>
+                    <select name="selectElement" id="select_element" class="form-control">
+                      <option value="金">金</option>
+                      <option value="木">木</option>
+                      <option value="水">水</option>
+                      <option value="火">火</option>
+                      <option value="土">土</option>
+                      <option value="风">风</option>
+                      <option value="雷">雷</option>
+                      <option value="光">光</option>
+                      <option value="暗">暗</option>
+                      <option value="冰">冰</option>
+                    </select>
+                  </div>
+                  <!-- 输入框组end -->
+                  <br />
+                  <!-- 输入框组start -->
+                  <div class="input-group">
+                    <label for="input_ability" class="input-group-addon">能力：</label>
+                    <input type="text" name="inputAbility" id="input_ability" class="form-control" placeholder="请输入能力" />
+                  </div>
+                  <!-- 输入框组end -->
+                  <br />
+                  <!-- 输入框组start -->
+                  <div class="input-group">
+                    <label for="input_belong_to" class="input-group-addon">所属：</label>
+                    <input type="text" name="inputBelongTo" id="input_belong_to" class="form-control" placeholder="请输入所属" />
+                  </div>
+                  <!-- 输入框组end -->
+                </div>
+                <div id="div_right" class="div-right"></div>
+                <br />
                 <!-- 输入框组start -->
                 <div class="input-group">
-                  <label for="input_name" class="input-group-addon">姓名：</label>
-                  <input type="text" id="input_name" class="form-control" placeholder="请输入姓名" />
+                  <label for="input_power_score" class="input-group-addon">力量：</label>
+                  <input type="range" name="inputPowerScore" id="input_power_score" class="form-control" min="0" max="100" />
+                  <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <label for="input_spirit_score" class="input-group-addon">精神：</label>
+                  <input type="range" name="inputSpiritScore" id="input_spirit_score" class="form-control" min="0" max="100" />
+                  <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
                 </div>
                 <!-- 输入框组end -->
                 <br />
                 <!-- 输入框组start -->
                 <div class="input-group">
-                  <label for="input_designation" class="input-group-addon">称号：</label>
-                  <input type="text" id="input_designation" class="form-control" placeholder="请输入称号" />
+                  <label for="input_agility_score" class="input-group-addon">敏捷：</label>
+                  <input type="range" name="inputAgilityScore" id="input_agility_score" class="form-control" min="0" max="100" />
+                  <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <label for="input_endurance_score" class="input-group-addon">耐力：</label>
+                  <input type="range" name="inputEnduranceScore" id="input_endurance_score" class="form-control" min="0" max="100" />
+                  <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
                 </div>
                 <!-- 输入框组end -->
                 <br />
                 <!-- 输入框组start -->
                 <div class="input-group">
-                  <label for="select_element" class="input-group-addon">元素：</label>
-                  <select name="type" id="select_element" class="form-control">
-                    <option value="金">金</option>
-                    <option value="木">木</option>
-                    <option value="水">水</option>
-                    <option value="火">火</option>
-                    <option value="土">土</option>
-                    <option value="风">风</option>
-                    <option value="雷">雷</option>
-                    <option value="光">光</option>
-                    <option value="暗">暗</option>
-                    <option value="冰">冰</option>
-                  </select>
+                  <label for="input_defense_score" class="input-group-addon">防御：</label>
+                  <input type="range" name="inputDefenseScore" id="input_defense_score" class="form-control" min="0" max="100" />
+                  <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <label for="input_toughness_score" class="input-group-addon">韧性：</label>
+                  <input type="range" name="inputToughnessScore" id="input_toughness_score" class="form-control" min="0" max="100" />
+                  <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
                 </div>
                 <!-- 输入框组end -->
-                <br />
-                <!-- 输入框组start -->
-                <div class="input-group">
-                  <label for="input_ability" class="input-group-addon">能力：</label>
-                  <input type="text" id="input_ability" class="form-control" placeholder="请输入能力" />
-                </div>
-                <!-- 输入框组end -->
-                <br />
-                <!-- 输入框组start -->
-                <div class="input-group">
-                  <label for="input_belong_to" class="input-group-addon">所属：</label>
-                  <input type="text" id="input_belong_to" class="form-control" placeholder="请输入所属" />
-                </div>
-                <!-- 输入框组end -->
-              </div>
-              <div id="div_right" class="div-right"></div>
-              <br />
-              <!-- 输入框组start -->
-              <div class="input-group">
-                <label for="input_power_score" class="input-group-addon">力量：</label>
-                <input type="range" id="input_power_score" class="form-control" min="0" max="100" />
-                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="input_spirit_score" class="input-group-addon">精神：</label>
-                <input type="range" id="input_spirit_score" class="form-control" min="0" max="100" />
-                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
-              </div>
-              <!-- 输入框组end -->
-              <br />
-              <!-- 输入框组start -->
-              <div class="input-group">
-                <label for="input_agility_score" class="input-group-addon">敏捷：</label>
-                <input type="range" id="input_agility_score" class="form-control" min="0" max="100" />
-                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="input_endurance_score" class="input-group-addon">耐力：</label>
-                <input type="range" id="input_endurance_score" class="form-control" min="0" max="100" />
-                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
-              </div>
-              <!-- 输入框组end -->
-              <br />
-              <!-- 输入框组start -->
-              <div class="input-group">
-                <label for="input_defense_score" class="input-group-addon">防御：</label>
-                <input type="range" id="input_defense_score" class="form-control" min="0" max="100" />
-                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="input_toughness_score" class="input-group-addon">韧性：</label>
-                <input type="range" id="input_toughness_score" class="form-control" min="0" max="100" />
-                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
-              </div>
-              <!-- 输入框组end -->
+              </form>
             </div>
             <div class="modal-footer">
               <input type="button" class="btn btn-default" data-dismiss="modal" value="关闭" />
