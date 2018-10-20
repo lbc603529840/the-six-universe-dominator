@@ -137,7 +137,14 @@
         </div>
       </div>
       <!-- 模态框end -->
-      <!-- 图标 -->
+      <#if legendList?size gt 0>
+        <!-- 搜索框 -->
+        <div class="div-legend">
+          <#list legendList as legend>
+            <img class="img-legend" alt="${legend.name} - ${legend.uuid}.jpg" src="ftp://127.0.0.1/the-six-universe-dominator/legend/${legend.uuid}.jpg" />
+          </#list>
+        </div>
+      </#if>
     </div>
     <div class="div-foot">
       <!-- 分页 -->

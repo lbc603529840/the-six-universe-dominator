@@ -53,7 +53,7 @@ public class LegendController {
     @ResponseBody
     public ModelAndView findAll() {
         ModelAndView modelAndView = new ModelAndView("legend");
-        modelAndView.addObject("navigation", "legend");
+        modelAndView.addObject("legendList", legendService.findAll());
         return modelAndView;
     }
 }

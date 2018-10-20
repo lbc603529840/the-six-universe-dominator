@@ -16,7 +16,7 @@ body {
 
 .div-body {
   background-color: rgba(0, 0, 0, 0.3);
-  height: 522px;
+  height: 542px;
   padding: 10px;
 }
 
@@ -44,10 +44,29 @@ body {
   border: none;
 }
 
+.div-legend {
+    background-color: aqua;
+  height: 484px;
+  margin-top: 5px;
+}
+
+.img-legend {
+  width: 120px;
+  height: 170px;
+  border-style: solid;
+  border-color: #9E9E9E;
+  border-width: 3px;
+}
+
+.img-legend:hover {
+  cursor: pointer;
+  border-width: 5px;
+}
+
 .div-foot {
   background-color: #F0F8FF;
-  height: 50px;
-  line-height: 50px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
 }
 
