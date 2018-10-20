@@ -1,0 +1,53 @@
+body {
+    background-image: url("../images/background.png");
+  }
+
+.div-head {
+  background-color: #F0F8FF;
+}
+
+.div-time {
+  text-align: right;
+}
+
+.ul-dropdown {
+  text-align: center;
+}
+
+.div-body {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 522px;
+  padding: 10px;
+}
+
+.div-left {
+  width: 420px;
+}
+
+.div-right {
+  width: 420px;
+  height: 250px;
+  float: right;
+  margin-top: -250px;
+}
+
+.input-property {
+  background-color: rgba(0,0,0,0);
+  width: 25px;
+  text-align: center;
+  border: none;
+}
+
+.div-foot {
+  background-color: #F0F8FF;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.span-copyright {
+  font-family: STKaiTi;
+  font-weight: bolder;
+  font-size: 18px;
+  color: #2E4358;
+}

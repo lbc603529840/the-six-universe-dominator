@@ -2,9 +2,150 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Legend</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/legend.css" />
   </head>
   <body>
-
+    <div class="div-head">
+      <div class="div-time">
+        <span>${.now?string("yyyy年MM月dd日")}</span>
+        <span id="span_time"></span>
+      </div>
+      <!-- 导航元素start -->
+      <ul class="nav nav-pills nav-justified">
+        <li class="active"><a href="#">Legends</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">${user.nickname}&nbsp;&nbsp;<span class="caret"></span></a>
+          <ul class="ul-dropdown dropdown-menu nav nav-tabs nav-stacked">
+            <li><a href="#">Swing</a></li>
+            <li><a href="#">jMeter</a></li>
+            <li><a href="#">EJB</a></li>
+            <li class="divider"></li>
+            <li><a href="/user/logout">注销</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- 导航元素end -->
+    </div>
+    <div class="div-body">
+      <input type="button" data-toggle="modal" data-target="#modal_create" class="btn btn-success" value="Create" />
+      <!-- 模态框start -->
+      <div id="modal_create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <input type="button" class="close" data-dismiss="modal" aria-hidden="true" value="&times;" />
+              <h4 class="modal-title" id="myModalLabel">Legend</h4>
+            </div>
+            <div class="modal-body">
+              <div class="div-left">
+                <!-- 输入框组start -->
+                <div class="input-group">
+                  <label for="input_name" class="input-group-addon">姓名：</label>
+                  <input type="text" id="input_name" class="form-control" placeholder="请输入姓名" />
+                </div>
+                <!-- 输入框组end -->
+                <br />
+                <!-- 输入框组start -->
+                <div class="input-group">
+                  <label for="input_designation" class="input-group-addon">称号：</label>
+                  <input type="text" id="input_designation" class="form-control" placeholder="请输入称号" />
+                </div>
+                <!-- 输入框组end -->
+                <br />
+                <!-- 输入框组start -->
+                <div class="input-group">
+                  <label for="select_element" class="input-group-addon">元素：</label>
+                  <select name="type" id="select_element" class="form-control">
+                    <option value="金">金</option>
+                    <option value="木">木</option>
+                    <option value="水">水</option>
+                    <option value="火">火</option>
+                    <option value="土">土</option>
+                    <option value="风">风</option>
+                    <option value="雷">雷</option>
+                    <option value="光">光</option>
+                    <option value="暗">暗</option>
+                    <option value="冰">冰</option>
+                  </select>
+                </div>
+                <!-- 输入框组end -->
+                <br />
+                <!-- 输入框组start -->
+                <div class="input-group">
+                  <label for="input_ability" class="input-group-addon">能力：</label>
+                  <input type="text" id="input_ability" class="form-control" placeholder="请输入能力" />
+                </div>
+                <!-- 输入框组end -->
+                <br />
+                <!-- 输入框组start -->
+                <div class="input-group">
+                  <label for="input_belong_to" class="input-group-addon">所属：</label>
+                  <input type="text" id="input_belong_to" class="form-control" placeholder="请输入所属" />
+                </div>
+                <!-- 输入框组end -->
+              </div>
+              <div id="div_right" class="div-right"></div>
+              <br />
+              <!-- 输入框组start -->
+              <div class="input-group">
+                <label for="input_power_score" class="input-group-addon">力量：</label>
+                <input type="range" id="input_power_score" class="form-control" min="0" max="100" />
+                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="input_spirit_score" class="input-group-addon">精神：</label>
+                <input type="range" id="input_spirit_score" class="form-control" min="0" max="100" />
+                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+              </div>
+              <!-- 输入框组end -->
+              <br />
+              <!-- 输入框组start -->
+              <div class="input-group">
+                <label for="input_agility_score" class="input-group-addon">敏捷：</label>
+                <input type="range" id="input_agility_score" class="form-control" min="0" max="100" />
+                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="input_endurance_score" class="input-group-addon">耐力：</label>
+                <input type="range" id="input_endurance_score" class="form-control" min="0" max="100" />
+                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+              </div>
+              <!-- 输入框组end -->
+              <br />
+              <!-- 输入框组start -->
+              <div class="input-group">
+                <label for="input_defense_score" class="input-group-addon">防御：</label>
+                <input type="range" id="input_defense_score" class="form-control" min="0" max="100" />
+                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="input_toughness_score" class="input-group-addon">韧性：</label>
+                <input type="range" id="input_toughness_score" class="form-control" min="0" max="100" />
+                <span class="input-group-addon"><input type="number" class="input-property" readonly /></span>
+              </div>
+              <!-- 输入框组end -->
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="关闭" />
+              <input type="button" id="input_create" class="btn btn-success" value="提交" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 模态框end -->
+      <!-- 图标 -->
+    </div>
+    <div class="div-foot">
+      <!-- 分页 -->
+      <span class="span-copyright">版权所有&copy;华北水利水电大学软件学院 | 地址:河南省郑州市北环路36号 | 邮编：450045 | 联系方式：0371-69127680</span>
+    </div>
   </body>
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/echarts.min.js"></script>
+  <script src="/js/legend.js"></script>
 </html>
